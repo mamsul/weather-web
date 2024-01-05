@@ -1,4 +1,4 @@
-import RainyIcon from '../../assets/weather-icons/rainy.png';
+import { weatherImg } from '../../helper/utils';
 
 const TodayWeatherSection = () => {
   return (
@@ -14,7 +14,7 @@ const TodayWeatherSection = () => {
 
           <div className="h-[8rem] w-auto sm:hidden">
             <img
-              src={RainyIcon}
+              src={weatherImg({ type: 'rainy' })}
               alt="cloudy weather icon"
               sizes="100%"
               className="h-full w-full object-contain object-center"
@@ -30,7 +30,7 @@ const TodayWeatherSection = () => {
         </div>
         <div className="hidden h-[13rem] w-auto sm:block">
           <img
-            src={RainyIcon}
+            src={weatherImg({ type: 'rainy' })}
             alt="cloudy weather icon"
             sizes="100%"
             className="h-full w-full object-contain object-center"

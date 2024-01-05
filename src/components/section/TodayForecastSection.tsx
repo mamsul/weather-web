@@ -1,3 +1,5 @@
+import { weatherImg } from '../../helper/utils';
+
 const TodayForecastSection = () => {
   return (
     <div className="h-auto w-full rounded-2xl bg-white/55 p-3 lg:h-[11.6rem] lg:p-5">
@@ -9,7 +11,7 @@ const TodayForecastSection = () => {
           <span className="text-xs text-gray-500 lg:text-sm">06.00 AM</span>
           <div className="h-[3rem] w-[3.5rem]">
             <img
-              src="/src/assets/weather-icons/night_storm.png"
+              src={weatherImg({ type: 'rainy' })}
               alt="cloudy weather icon"
               sizes="100%"
               className="h-full w-full object-cover object-center"
@@ -21,7 +23,7 @@ const TodayForecastSection = () => {
           <span className="text-xs text-gray-500 lg:text-sm">09.00 AM</span>
           <div className="h-[3rem] w-[3.5rem]">
             <img
-              src="/src/assets/weather-icons/night_storm.png"
+              src={weatherImg({ type: 'rainy' })}
               alt="cloudy weather icon"
               sizes="100%"
               className="h-full w-full object-cover object-center"
@@ -33,7 +35,7 @@ const TodayForecastSection = () => {
           <span className="text-xs text-gray-500 lg:text-sm">12.00 PM</span>
           <div className="h-[3rem] w-[3.5rem]">
             <img
-              src="/src/assets/weather-icons/night_storm.png"
+              src={weatherImg({ type: 'rainy' })}
               alt="cloudy weather icon"
               sizes="100%"
               className="h-full w-full object-cover object-center"
@@ -45,7 +47,7 @@ const TodayForecastSection = () => {
           <span className="text-xs text-gray-500 lg:text-sm">03.00 PM</span>
           <div className="h-[3rem] w-[3.5rem]">
             <img
-              src="/src/assets/weather-icons/night_storm.png"
+              src={weatherImg({ type: 'rainy' })}
               alt="cloudy weather icon"
               sizes="100%"
               className="h-full w-full object-cover object-center"
@@ -57,7 +59,7 @@ const TodayForecastSection = () => {
           <span className="text-xs text-gray-500 lg:text-sm">06.00 PM</span>
           <div className="h-[3rem] w-[3.5rem]">
             <img
-              src="/src/assets/weather-icons/night_storm.png"
+              src={weatherImg({ type: 'rainy' })}
               alt="cloudy weather icon"
               sizes="100%"
               className="h-full w-full object-cover object-center"
@@ -69,7 +71,7 @@ const TodayForecastSection = () => {
           <span className="text-xs text-gray-500 lg:text-sm">09.00 PM</span>
           <div className="h-[3rem] w-[3.5rem]">
             <img
-              src="/src/assets/weather-icons/night_storm.png"
+              src={weatherImg({ type: 'rainy' })}
               alt="cloudy weather icon"
               sizes="100%"
               className="h-full w-full object-cover object-center"

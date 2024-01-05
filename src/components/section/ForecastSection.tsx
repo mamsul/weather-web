@@ -9,25 +9,25 @@ const ForecastSection = () => {
 
       <ul className="0 mt-6 flex h-full w-full flex-col space-y-4">
         <li className="h-16 w-full border-b border-slate-300">
-          <ForecastItem day="Sun" weather="Thunderstorm" temp={27} />
+          <ForecastItem day="Sun" weather="Rainy" temp={27} />
         </li>
         <li className="h-16 w-full border-b border-slate-300">
-          <ForecastItem day="Mon" weather="Thunderstorm" temp={27} />
+          <ForecastItem day="Mon" weather="Rainy" temp={27} />
         </li>
         <li className="h-16 w-full border-b border-slate-300">
-          <ForecastItem day="Tue" weather="Thunderstorm" temp={27} />
+          <ForecastItem day="Tue" weather="Rainy" temp={27} />
         </li>
         <li className="h-16 w-full border-b border-slate-300">
-          <ForecastItem day="Wed" weather="Thunderstorm" temp={27} />
+          <ForecastItem day="Wed" weather="Rainy" temp={27} />
         </li>
         <li className="h-16 w-full border-b border-slate-300">
-          <ForecastItem day="Thu" weather="Thunderstorm" temp={27} />
+          <ForecastItem day="Thu" weather="Rainy" temp={27} />
         </li>
         <li className="h-16 w-full border-b border-slate-300">
-          <ForecastItem day="Fri" weather="Thunderstorm" temp={27} />
+          <ForecastItem day="Fri" weather="Rainy" temp={27} />
         </li>
         <li className="h-16 w-full border-b border-slate-300">
-          <ForecastItem day="Sat" weather="Thunderstorm" temp={27} />
+          <ForecastItem day="Sat" weather="Rainy" temp={27} />
         </li>
       </ul>
     </div>

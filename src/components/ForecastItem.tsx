@@ -1,4 +1,5 @@
 import { Thermometer } from 'lucide-react';
+import { weatherImg } from '../helper/utils';
 
 const ForecastItem = ({
   day,
@@ -18,7 +19,7 @@ const ForecastItem = ({
           <div className="flex items-center gap-2">
             <div className="h-[2rem] w-auto sm:h-[3rem]">
               <img
-                src="/src/assets/weather-icons/thunderstorm.png"
+                src={weatherImg({ type: 'rainy' })}
                 alt="cloudy weather icon"
                 sizes="100%"
                 className="h-full w-full object-cover object-center"

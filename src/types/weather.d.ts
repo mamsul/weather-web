@@ -59,3 +59,14 @@ interface WeatherData {
   name: string;
   cod: number;
 }
+
+// Weather Condition for Ilustration
+type WeatherType =
+  | 'rainy'
+  | 'happyday'
+  | 'thumderstorm'
+  | 'cloudy'
+  | 'nigth-storm'
+  | 'partly-cloudy'
+  | 'partly-day-storm'
+  | 'snowy';
