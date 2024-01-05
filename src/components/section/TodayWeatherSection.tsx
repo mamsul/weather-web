@@ -1,3 +1,5 @@
+import RainyIcon from '../../assets/weather-icons/rainy.png';
+
 const TodayWeatherSection = () => {
   return (
     <div className="w-full sm:px-10 lg:px-40 xl:px-10">
@@ -12,7 +14,7 @@ const TodayWeatherSection = () => {
 
           <div className="h-[8rem] w-auto sm:hidden">
             <img
-              src="/src/assets/weather-icons/rainy.png"
+              src={RainyIcon}
               alt="cloudy weather icon"
               sizes="100%"
               className="h-full w-full object-contain object-center"
@@ -28,7 +30,7 @@ const TodayWeatherSection = () => {
         </div>
         <div className="hidden h-[13rem] w-auto sm:block">
           <img
-            src="/src/assets/weather-icons/rainy.png"
+            src={RainyIcon}
             alt="cloudy weather icon"
             sizes="100%"
             className="h-full w-full object-contain object-center"
