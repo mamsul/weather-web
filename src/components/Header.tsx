@@ -12,11 +12,15 @@ const Header = () => {
       </div>
 
       <a
-        href="#"
+        href="https://github.com/mamsul/weather-web"
+        target="_blank"
         className="hidden text-sm underline underline-offset-4 sm:block sm:text-base">
         github
       </a>
-      <a href="#" className="block sm:hidden">
+      <a
+        href="https://github.com/mamsul/weather-web"
+        target="_blank"
+        className="block sm:hidden">
         <Github className="h-auto w-4" />
       </a>
     </header>
