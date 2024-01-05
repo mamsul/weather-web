@@ -9,7 +9,7 @@ export const fetchCurrentWeather = async (
 ): Promise<WeatherData> => {
   const config: AxiosRequestConfig = {
     method: 'GET',
-    url: `/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`,
+    url: `/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`,
   };
   return await apiRequest<WeatherData>('weather', config);
 };

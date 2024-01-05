@@ -13,14 +13,12 @@ function App() {
 
   useEffect(() => {
     async function fetchWeatherData() {
-      const data = await fetchCurrentWeather(44.34, 10.99);
+      const data = await fetchCurrentWeather(-6.326944444, 108.322222222);
       setWeather(data);
     }
 
     fetchWeatherData();
   }, []);
-
-  console.log(weather);
 
   return (
     <main className="flex h-screen w-full items-center justify-center text-gray-700 forest-bg">
@@ -33,9 +31,13 @@ function App() {
             </div>
             <div className="mt-6 flex w-full flex-col gap-5 xl:flex-row">
               <div className="flex h-full w-full flex-col space-y-3 xl:w-7/12">
-                <TodayWeatherSection />
-                <TodayForecastSection />
-                <AirConditionSection />
+                {weather && (
+                  <>
+                    <TodayWeatherSection data={weather} />
+                    <TodayForecastSection />
+                    <AirConditionSection data={weather} />
+                  </>
+                )}
               </div>
               <div className="h-full w-full xl:w-5/12">
                 <ForecastSection />

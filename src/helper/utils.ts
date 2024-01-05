@@ -37,4 +37,8 @@ const weatherImg = ({ type }: { type: WeatherType }) => {
   }
 };
 
-export { convertDate, weatherImg };
+const rounding = (num: number) => {
+  return Math.round(num);
+};
+
+export { convertDate, rounding, weatherImg };
