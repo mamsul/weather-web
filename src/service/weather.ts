@@ -3,13 +3,14 @@ import { apiRequest } from './api';
 
 const WEATHER_API_KEY = 'fcf49f57500add427fbf083dbd6995bd';
 
-export const fetchCurrentWeather = async (
+export const fetchCurrentWeather = async <T>(
   lat: number,
   lon: number,
-): Promise<WeatherData> => {
+  type: 'weather' | 'forecast',
+): Promise<T> => {
   const config: AxiosRequestConfig = {
     method: 'GET',
-    url: `/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`,
+    url: `/${type}?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`,
   };
-  return await apiRequest<WeatherData>('weather', config);
+  return await apiRequest<T>('weather', config);
 };

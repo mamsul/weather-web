@@ -43,7 +43,7 @@ interface Sys {
   sunset: number;
 }
 
-interface WeatherData {
+interface IWeatherData {
   coord: Coordinates;
   weather: Weather[];
   base: string;
@@ -60,13 +60,37 @@ interface WeatherData {
   cod: number;
 }
 
+interface IForecastData {
+  dt: string;
+  main: MainWeatherDetails;
+  weather: Weather[];
+  clouds: Clouds;
+  wind: Wind;
+  visibility: string;
+  pop: number;
+  sys: Sys;
+  dt_txt: string;
+}
+
+interface IForecastGroup {
+  date: string;
+  temp: number;
+  desc: string;
+  main: string;
+}
+
+interface IForecastRes {
+  list: IForecastData[];
+}
+
 // Weather Condition for Ilustration
 type WeatherType =
-  | 'rainy'
-  | 'happyday'
-  | 'thumderstorm'
-  | 'cloudy'
+  | 'Rain'
+  | 'Clear'
+  | 'Haze'
+  | 'Thunderstorm'
+  | 'Clouds'
   | 'nigth-storm'
   | 'partly-cloudy'
   | 'partly-day-storm'
-  | 'snowy';
+  | 'Snow';

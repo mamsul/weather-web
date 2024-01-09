@@ -16,7 +16,8 @@
 
 /* Scrollbar Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 1px;
+  width: 2px;
+  height: 2px;
 }
 
 *::-webkit-scrollbar-track {
