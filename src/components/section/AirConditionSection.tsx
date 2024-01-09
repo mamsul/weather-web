@@ -2,7 +2,7 @@ import { Cloud, Droplets, Thermometer, Wind } from 'lucide-react';
 import { rounding } from '../../helper/utils';
 
 type AirConditionSectionProps = {
-  data: WeatherData;
+  data: IWeatherData;
 };
 
 const AirConditionSection = ({ data }: AirConditionSectionProps) => {
