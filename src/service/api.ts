@@ -2,6 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 
 const createAPI = (baseURL: string) => {
   return axios.create({
+    method: 'GET',
     baseURL,
     timeout: 5000,
   });

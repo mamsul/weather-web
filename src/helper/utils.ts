@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import clsx, { ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import Cloudy from '../assets/weather-icons/cloudy.png';
@@ -167,9 +168,20 @@ const getWeekForecast = (forecastList: IForecastData[]) => {
   return [];
 };
 
+const getError = (error: unknown): string => {
+  if (error instanceof AxiosError) {
+    return error.response?.data?.message || 'An error occurred with Axios.';
+  } else if (error instanceof Error) {
+    return error.message;
+  } else {
+    return 'Something went wrong!';
+  }
+};
+
 export {
   capitalizeEachWord,
   convertDate,
+  getError,
   getTodayForecast,
   getWeekForecast,
   rounding,

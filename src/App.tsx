@@ -1,13 +1,15 @@
+import { AlertTriangle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import LocationSearch from './components/LocationSearch';
+import Spinner from './components/Spinner';
 import AirConditionSection from './components/section/AirConditionSection';
 import ForecastSection from './components/section/ForecastSection';
 import TodayForecastSection from './components/section/TodayForecastSection';
 import TodayWeatherSection from './components/section/TodayWeatherSection';
-import { getTodayForecast, getWeekForecast } from './helper/utils';
-import { fetchCurrentWeather } from './service/weather';
+import { getError, getTodayForecast, getWeekForecast } from './helper/utils';
+import { fetchWeatherData } from './service/weather';
 
 function App() {
   const [weather, setWeather] = useState<IWeatherData | null>(null);
@@ -15,27 +17,33 @@ function App() {
   const [weekForecast, setWeekForecast] = useState<IForecastGroup[] | []>([]);
   const [latlon, setLatlon] = useState<string | null>(null);
   const [city, setCity] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>();
 
   useEffect(() => {
-    async function fetchWeatherData(lat: number, lon: number) {
-      const weatherData: IWeatherData = await fetchCurrentWeather(
-        lat,
-        lon,
-        'weather',
-      );
-      const forecastData: IForecastRes = await fetchCurrentWeather(
-        lat,
-        lon,
-        'forecast',
-      );
+    async function fetchWeather(lat: number, lon: number) {
+      const param = { lat, lon };
 
-      setWeather(weatherData);
+      try {
+        setLoading(true);
+        const [weather, forecast] = await Promise.all([
+          fetchWeatherData({ ...param }).todayWeather(),
+          fetchWeatherData({ ...param }).forecast(),
+        ]);
 
-      if (forecastData) {
-        const todayForecast = await getTodayForecast(forecastData.list);
-        const weekForecast = await getWeekForecast(forecastData.list);
-        setTodayForecast(todayForecast);
-        setWeekForecast(weekForecast);
+        setWeather(weather);
+
+        if (forecast) {
+          const todayForecast = await getTodayForecast(forecast.list);
+          const weekForecast = await getWeekForecast(forecast.list);
+          setTodayForecast(todayForecast);
+          setWeekForecast(weekForecast);
+        }
+      } catch (error) {
+        const err = await getError(error);
+        setError(err);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -43,12 +51,13 @@ function App() {
       const pos = latlon.split(' ');
       const lat = parseFloat(pos[0]);
       const lon = parseFloat(pos[1]);
-      fetchWeatherData(lat, lon);
+      fetchWeather(lat, lon);
     }
   }, [latlon]);
 
   const clearData = () => {
     setWeather(null);
+    setError(null);
     setTodayForecast([]);
     setWeekForecast([]);
   };
@@ -71,7 +80,21 @@ function App() {
               <LocationSearch onChangeSearch={handleChangeSearch} />
             </div>
             <div className="mt-6 flex w-full flex-col gap-5 xl:flex-row">
-              {weather && (
+              {loading && (
+                <div className="flex h-[60vh] w-full items-center justify-center">
+                  <Spinner />
+                </div>
+              )}
+              {!loading && error && (
+                <div className="flex h-[60vh] w-full flex-col items-center justify-center">
+                  <p className="inline-flex items-center gap-3 text-sm font-semibold sm:text-xl">
+                    {' '}
+                    <AlertTriangle /> Failed
+                  </p>
+                  <p className="mt-4">{error}</p>
+                </div>
+              )}
+              {!loading && weather && (
                 <>
                   <div className="flex h-full w-full flex-col space-y-3 xl:w-7/12">
                     <TodayWeatherSection city={city} data={weather} />
