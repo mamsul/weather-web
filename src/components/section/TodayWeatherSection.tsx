@@ -1,3 +1,4 @@
+import { motion as m } from 'framer-motion';
 import { capitalizeEachWord, rounding, weatherImg } from '../../helper/utils';
 
 type TodayWeatherSectionProps = {
@@ -7,7 +8,11 @@ type TodayWeatherSectionProps = {
 
 const TodayWeatherSection = ({ data, city }: TodayWeatherSectionProps) => {
   return (
-    <div className="w-full sm:px-10 lg:px-40 xl:px-10">
+    <m.div
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.7, type: 'spring', stiffness: 50 }}
+      className="w-full sm:px-10 lg:px-40 xl:px-10">
       <div className="flex h-[20rem] flex-col items-center justify-center py-3 sm:h-[15rem] sm:flex-row sm:justify-between">
         <div className="flex h-full flex-col justify-between">
           <div className="text-center sm:text-start">
@@ -44,7 +49,7 @@ const TodayWeatherSection = ({ data, city }: TodayWeatherSectionProps) => {
           />
         </div>
       </div>
-    </div>
+    </m.div>
   );
 };
 

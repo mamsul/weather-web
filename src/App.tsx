@@ -6,6 +6,7 @@ import LocationSearch from './components/LocationSearch';
 import Spinner from './components/Spinner';
 import AirConditionSection from './components/section/AirConditionSection';
 import ForecastSection from './components/section/ForecastSection';
+import IdleSection from './components/section/IdleSection';
 import TodayForecastSection from './components/section/TodayForecastSection';
 import TodayWeatherSection from './components/section/TodayWeatherSection';
 import { getError, getTodayForecast, getWeekForecast } from './helper/utils';
@@ -106,6 +107,7 @@ function App() {
                   </div>
                 </>
               )}
+              {!loading && !error && !weather && <IdleSection />}
             </div>
           </div>
         </div>

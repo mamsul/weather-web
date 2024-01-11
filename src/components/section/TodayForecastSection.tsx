@@ -1,3 +1,4 @@
+import { motion as m } from 'framer-motion';
 import { convertDate, rounding, weatherImg } from '../../helper/utils';
 
 type TodayForecastSectionProps = {
@@ -6,7 +7,11 @@ type TodayForecastSectionProps = {
 
 const TodayForecastSection = ({ data }: TodayForecastSectionProps) => {
   return (
-    <div className="h-auto w-full rounded-2xl bg-white/55 p-3 lg:h-[11.6rem] lg:p-5">
+    <m.div
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ delay: 0.4, duration: 0.7, type: 'spring', stiffness: 50 }}
+      className="h-auto w-full rounded-2xl bg-white/55 p-3 lg:h-[11.6rem] lg:p-5">
       <h2 className="text-center text-sm font-bold lg:text-base">
         TODAY FORECAST
       </h2>
@@ -36,7 +41,7 @@ const TodayForecastSection = ({ data }: TodayForecastSectionProps) => {
             );
           })}
       </ul>
-    </div>
+    </m.div>
   );
 };
 

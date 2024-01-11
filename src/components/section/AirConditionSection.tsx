@@ -1,3 +1,4 @@
+import { motion as m } from 'framer-motion';
 import { Cloud, Droplets, Thermometer, Wind } from 'lucide-react';
 import { rounding } from '../../helper/utils';
 
@@ -7,7 +8,11 @@ type AirConditionSectionProps = {
 
 const AirConditionSection = ({ data }: AirConditionSectionProps) => {
   return (
-    <div className="h-max w-full rounded-2xl bg-white/55 p-5 sm:h-[11.6rem]">
+    <m.div
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ delay: 0.8, duration: 0.7, type: 'spring', stiffness: 50 }}
+      className="h-max w-full rounded-2xl bg-white/55 p-5 sm:h-[11.6rem]">
       <h2 className="text-center text-sm font-bold sm:text-base">
         AIR CONDITION
       </h2>
@@ -45,7 +50,7 @@ const AirConditionSection = ({ data }: AirConditionSectionProps) => {
           </span>
         </div>
       </div>
-    </div>
+    </m.div>
   );
 };
 

@@ -1,3 +1,4 @@
+import { motion as m } from 'framer-motion';
 import { convertDate, rounding } from '../../helper/utils';
 import ForecastItem from '../ForecastItem';
 
@@ -9,7 +10,11 @@ const ForecastSection = ({ data }: ForecastSectionProps) => {
   const dtToday: string = new Date().toString();
 
   return (
-    <div className="rounded-2xl bg-white/55 p-5">
+    <m.div
+      initial={{ x: 100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ delay: 1.2, duration: 0.7, type: 'spring', stiffness: 50 }}
+      className="rounded-2xl bg-white/55 p-5">
       <h2 className="text-center text-sm font-bold sm:text-base">
         {data.length}-DAY FORECAST
       </h2>
@@ -35,7 +40,7 @@ const ForecastSection = ({ data }: ForecastSectionProps) => {
             );
           })}
       </ul>
-    </div>
+    </m.div>
   );
 };
 

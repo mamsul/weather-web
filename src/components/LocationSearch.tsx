@@ -29,6 +29,7 @@ const LocationSearch = ({ onChangeSearch }: LocationSearchProps) => {
 
   return (
     <AsyncPaginate
+      aria-label="search city location"
       value={searchValue}
       placeholder="Search city"
       loadOptions={loadOptions}
